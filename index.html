@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacos del Sur - Tacos al Pastor</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) Library for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a; /* Dark background for elegance */
+            color: #f1f5f9; /* Light gray text */
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 1)), url('https://res.cloudinary.com/dcusstbid/image/upload/v1752207629/a_kzdqmu_c_pad_b_gen_fill_ar_9_16_wkkikd.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #fb923c; /* Orange-400 */
+            transform: translateY(-2px);
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(251, 146, 60, 0.2);
+        }
+        .menu-item {
+            border-left: 3px solid #fb923c;
+            padding: 1rem; /* Added padding for better spacing */
+            border-radius: 0.5rem; /* Rounded corners for menu items */
+            background-color: #2a2a2a; /* Slightly lighter background for items */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-3px);
+        }
+        /* Prevents flicker on load for AOS */
+        [data-aos] {
+            opacity: 0;
+            transition-property: transform, opacity;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold font-display text-white">Tacos del Sur</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-slate-200 nav-link">Inicio</a>
+                    <a href="#menu" class="text-slate-200 nav-link">Menú</a>
+                    <a href="#galeria" class="text-slate-200 nav-link">Galería</a>
+                    <a href="#contacto" class="text-slate-200 nav-link">Contacto</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#inicio" class="text-white text-2xl mobile-nav-link">Inicio</a>
+            <a href="#menu" class="text-white text-2xl mobile-nav-link">Menú</a>
+            <a href="#galeria" class="text-white text-2xl mobile-nav-link">Galería</a>
+            <a href="#contacto" class="text-white text-2xl mobile-nav-link">Contacto</a>
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-white text-3xl">&times;</button>
+        </div>
+    </div>
+
+
+    <main>
+
+        <!-- Section 1: Hero -->
+        <section id="inicio" class="h-screen flex items-center justify-center text-center hero-bg">
+            <div class="px-6">
+                <h1 data-aos="fade-down" class="text-5xl md:text-7xl lg:text-8xl font-extrabold font-display text-white leading-tight mb-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">El Sabor Auténtico del Pastor</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto mb-8">Más que tacos, una tradición familiar de corazón. Ven y descubre el verdadero sabor.</p>
+                <a href="#menu" data-aos="zoom-in" data-aos-delay="400" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Ver Menú</a>
+            </div>
+        </section>
+
+        <!-- Section 2: Menu -->
+        <section id="menu" class="py-20 md:py-32 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold font-display text-white">Nuestro Menú</h2>
+                    <p class="text-slate-400 mt-4 max-w-xl mx-auto">Ingredientes frescos y recetas tradicionales para una experiencia inolvidable.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Menu Column 1: Tacos & Suizos -->
+                    <div class="space-y-10" data-aos="fade-up" data-aos-delay="100">
+                        <div id="tacos-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Tacos</h3>
+                            <div class="space-y-4" id="tacos-list">
+                                <!-- Tacos will be injected here by JS -->
+                            </div>
+                        </div>
+                        <div id="suizos-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Suizos</h3>
+                            <p class="text-slate-400 text-sm mb-4">Taco con tortilla de harina, con queso y la carne.</p>
+                            <div class="space-y-4" id="suizos-list">
+                                <!-- Suizos will be injected here by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Column 2: Gringas, Tortas, Alambres, Costras, Volcanes -->
+                    <div class="space-y-10" data-aos="fade-up" data-aos-delay="200">
+                        <div id="gringas-tortas-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Gringas y Tortas</h3>
+                            <div class="space-y-4" id="gringas-tortas-list">
+                                <!-- Gringas y Tortas will be injected here by JS -->
+                            </div>
+                        </div>
+                        <div id="alambres-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Alambres</h3>
+                            <p class="text-slate-400 text-sm mb-4">Preparado con queso, pimiento morrón, cebolla y tocino.</p>
+                            <div class="space-y-4" id="alambres-list">
+                                <!-- Alambres will be injected here by JS -->
+                            </div>
+                        </div>
+                        <div id="costras-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Costras</h3>
+                            <div class="space-y-4" id="costras-list">
+                                <!-- Costras will be injected here by JS -->
+                            </div>
+                        </div>
+                        <div id="volcanes-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Volcanes</h3>
+                            <p class="text-slate-400 text-sm mb-4">Tostada de maíz con queso y carne.</p>
+                            <div class="space-y-4" id="volcanes-list">
+                                <!-- Volcanes will be injected here by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Column 3: Bebidas & Image -->
+                    <div class="space-y-10" data-aos="fade-up" data-aos-delay="300">
+                        <div id="bebidas-section">
+                            <h3 class="text-2xl font-bold text-orange-400 mb-6">Bebidas</h3>
+                            <div class="space-y-4" id="bebidas-list">
+                                <!-- Bebidas will be injected here by JS -->
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Gallery -->
+        <section id="galeria" class="py-20 md:py-32 bg-zinc-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold font-display text-white">Nuestra Galería</h2>
+                    <p class="text-slate-400 mt-4">Un vistazo a nuestro ambiente y los platillos que te esperan.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752206189/20250429_000945_nhmjbb.jpg" alt="[Imagen de un platillo del restaurante]"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752207865/20250501_231626_qlhfrr.jpg" alt="[Imagen de una bebida]"></div>
+                    </div>
+                    <div class="grid gap-4" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752209568/20250710_223931_zmmurb.jpg" alt="[Imagen del interior del restaurante]"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/c_crop,ar_3:4/v1752212324/20250501_230353_bijuhm.jpg" alt="[Imagen de otro platillo]"></div>
+                    </div>
+                    <div class="grid gap-4" data-aos="zoom-in-up" data-aos-delay="300">
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752209568/20250617_204238_admndu.jpg" alt="[Imagen de un detalle decorativo del restaurante]"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752209724/20250501_225004_geglpc.jpg" alt="[Imagen del trompo de carne al pastor]"></div>
+                    </div>
+                    <div class="grid gap-4" data-aos="zoom-in-up" data-aos-delay="400">
+                           <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752211721/as_oeto4e.jpg" alt="[Imagen de clientes felices]"></div>
+                        <div class="overflow-hidden rounded-lg shadow-lg"><img class="h-auto max-w-full gallery-img" src="https://res.cloudinary.com/dcusstbid/image/upload/v1752206165/IMG-20250422-WA0025_pq3xko.jpg" alt="[Imagen de un tercer platillo]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Contact & Location -->
+        <section id="contacto" class="py-20 md:py-32 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold font-display text-white">Visítanos</h2>
+                    <p class="text-slate-400 mt-4">Estamos listos para servirte los mejores tacos de la ciudad.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Map -->
+                    <div class="w-full lg:w-2/3 h-96 lg:h-auto rounded-lg overflow-hidden shadow-2xl" data-aos="fade-right">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3766.780543517329!2d-99.5390337!3d19.2483938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdf4c9d3a2aa31%3A0xbc88024f9de03425!2sTACOS%20DEL%20SUR!5e0!3m2!1ses!2smx!4v1751757277927!5m2!1ses!2smx"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="w-full lg:w-1/3 flex flex-col justify-center" data-aos="fade-left" data-aos-delay="200">
+                        <div class="bg-zinc-800 p-8 rounded-lg shadow-lg">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Ubicación</h3>
+                                <p class="text-slate-300">Manzana 048, Guadalupe, 52107 San Mateo Atenco, Méx.</p>
+                            </div>
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-bold text-white mb-2">Horario</h3>
+                                <p class="text-slate-300">Lunes a Domingo: 4:00 PM - 11:00 PM</p>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Síguenos</h3>
+                                <div class="flex space-x-6">
+                                    <a href="https://www.facebook.com/share/19bHuXexvV/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-orange-400 transition duration-300 text-3xl"><i class="fab fa-facebook-square"></i></a>
+                                    <a href="https://www.instagram.com/tacos.del.sur_fts?igsh=dms1dGZzOW0zbWhi" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-orange-400 transition duration-300 text-3xl"><i class="fab fa-instagram-square"></i></a>
+                                    <a href="https://wa.me/5217227618491" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-orange-400 transition duration-300 text-3xl"><i class="fab fa-whatsapp-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p>&copy; 2025 Tacos del Sur. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Visitanos pronto <i class="fas fa-heart text-orange-500"></i></p>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+
+        // JavaScript for header scroll effect and mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenu = document.getElementById('close-mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            // Header background on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-zinc-900', 'shadow-lg');
+                } else {
+                    header.classList.remove('bg-zinc-900', 'shadow-lg');
+                }
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+            });
+
+            closeMobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Menu Data
+            const menuData = [
+                {
+                    category: "Tacos",
+                    targetId: "tacos-list",
+                    items: [
+                        { name: "Al Pastor", price: "15", description: "Nuestra especialidad. Carne de cerdo marinada en achiote, servida con piña, cilantro y cebolla." },
+                        { name: "Bistec", price: "25", description: "Jugoso bistec de res a la plancha." },
+                        { name: "Chuleta", price: "15", description: "Jugosa chuleta de cerdo en trozos." },
+                        { name: "Arrachera", price: "50", description: "Tierna arrachera marinada y cocinada a la perfección." },
+                        { name: "Con Queso", price: "+10", description: "Añade queso derretido a tu taco favorito." }
+                    ]
+                },
+                {
+                    category: "Suizos",
+                    targetId: "suizos-list",
+                    items: [
+                        { name: "Pastor", price: "35" },
+                        { name: "Bistec", price: "50" },
+                        { name: "Chuleta", price: "35" },
+                        { name: "Arrachera", price: "80" }
+                    ]
+                },
+                {
+                    category: "Gringas y Tortas",
+                    targetId: "gringas-tortas-list",
+                    items: [
+                        { name: "Pastor", price: "75", description: "Gringa o torta con carne al pastor." },
+                        { name: "Chuleta", price: "75", description: "Gringa o torta con jugosa chuleta." },
+                        { name: "Bistec", price: "90", description: "Gringa o torta con jugoso bistec." },
+                        { name: "Arrachera", price: "160", description: "Gringa o torta con tierna arrachera." }
+                    ]
+                },
+                {
+                    category: "Alambres",
+                    targetId: "alambres-list",
+                    items: [
+                        { name: "Pastor o Chuleta", price: "150" },
+                        { name: "Bistec", price: "200" }
+                    ]
+                },
+                {
+                    category: "Costras",
+                    targetId: "costras-list",
+                    items: [
+                        { name: "Pastor", price: "30", description: "Carne al pastor envuelta en una crujiente costra de queso." },
+                        { name: "Chuleta", price: "30", description: "Chuleta envuelta en una crujiente costra de queso." },
+                        { name: "Bistec", price: "45", description: "Bistec envuelto en una crujiente costra de queso." },
+                        { name: "Arrachera", price: "70", description: "Arrachera envuelta en una crujiente costra de queso." }
+                    ]
+                },
+                {
+                    category: "Volcanes",
+                    targetId: "volcanes-list",
+                    items: [
+                        { name: "Pastor", price: "25" },
+                        { name: "Chuleta", price: "25" },
+                        { name: "Bistec", price: "35" },
+                        { name: "Arrachera", price: "60" }
+                    ]
+                },
+                {
+                    category: "Bebidas",
+                    targetId: "bebidas-list",
+                    items: [
+                        { name: "Refrescos", price: "25", description: "Pepsi, Seven Up, Sangría, Manzanita, Boing (Mango y Guayaba)." },
+                        { name: "Café", price: "35", description: "Café de grano de Oaxaca de especialidad." },
+                        { name: "Carajillo", price: "150", description: "La perfecta combinación de café espresso y un toque de licor (con brandy, ron o Licor 43)." },
+                        { name: "Cerveza Nacional", price: "Preguntar", description: "Pregunta por nuestra selección de cervezas." },
+                        { name: "Bebidas de Temporada", price: "Preguntar", description: "Disfruta de nuestras bebidas especiales de temporada." }
+                    ]
+                }
+            ];
+
+            // Function to render menu items
+            function renderMenu() {
+                menuData.forEach(category => {
+                    const listElement = document.getElementById(category.targetId);
+                    if (listElement) {
+                        listElement.innerHTML = ''; // Clear existing content
+                        category.items.forEach(item => {
+                            const menuItemDiv = document.createElement('div');
+                            menuItemDiv.classList.add('menu-item');
+                            
+                            let descriptionHtml = item.description ? `<p class="text-slate-400 text-sm mt-1">${item.description}</p>` : '';
+                            
+                            menuItemDiv.innerHTML = `
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-lg text-slate-100">${item.name}</h4>
+                                    <span class="text-orange-400 font-semibold text-lg">$${item.price}</span>
+                                </div>
+                                ${descriptionHtml}
+                            `;
+                            listElement.appendChild(menuItemDiv);
+                        });
+                    }
+                });
+            }
+
+            // Call renderMenu on DOMContentLoaded
+            renderMenu();
+        });
+    </script>
+
+</body>
+</html>
